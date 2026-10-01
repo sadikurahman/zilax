@@ -4,87 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zilax - Shop • Rent • Live Better</title>
-    <!-- FontAwesome Icons for Exact UI Elements -->
+    <!-- FontAwesome Icons for Real Mobile App View -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
         body { background-color: #f6f9fc; color: #333; padding-bottom: 80px; display: flex; justify-content: center; }
         
-        /* Mobile View Viewport Setup */
+        /* Mobile Device Container */
         .phone-container { width: 100%; max-width: 415px; background: #fff; min-height: 100vh; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow-x: hidden; }
         
-        /* Exact Dark Blueish Green Header Area */
-        header { background: linear-gradient(180deg, #023e37, #012a25); padding: 20px 16px 24px; color: white; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
+        /* Premium Dark Green Custom Header */
+        header { background: linear-gradient(180deg, #005a36, #013f26); padding: 22px 16px 26px; color: white; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
         
-        /* Top Navigation Grid */
+        /* Top Branding Row */
         .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
         .logo-section { display: flex; align-items: center; gap: 10px; }
-        .logo-img-mock { width: 28px; height: 28px; background: #00cc66; border-radius: 8px; transform: rotate(-10deg); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; }
-        
+        .logo-icon-box { background-color: #00cc66; width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; transform: rotate(-8deg); box-shadow: 0 4px 10px rgba(0,204,102,0.3); }
+        .logo-icon-box i { color: #fff; font-size: 16px; }
         .logo-text { display: flex; flex-direction: column; }
-        .brand-name { font-size: 25px; font-weight: 800; letter-spacing: 0.5px; color: #fff; line-height: 1; }
-        .brand-sub { font-size: 10px; color: #94b2af; margin-top: 2px; font-weight: 500; }
+        .brand-name { font-size: 26px; font-weight: 800; letter-spacing: 0.5px; color: #fff; line-height: 1; }
+        .brand-sub { font-size: 10px; color: #94b2af; margin-top: 3px; font-weight: 500; }
         
-        .right-actions { display: flex; gap: 18px; font-size: 21px; align-items: center; }
-        .icon-box-top { position: relative; color: #fff; }
-        .noti-badge { position: absolute; top: -5px; right: -5px; background: #eb4d4b; color: white; font-size: 9px; font-weight: bold; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1.5px solid #012a25; }
+        /* Header Top Right Icons */
+        .right-actions { display: flex; gap: 20px; font-size: 22px; align-items: center; }
+        .icon-btn-wrapper { position: relative; color: #fff; cursor: pointer; }
+        .noti-badge { position: absolute; top: -5px; right: -6px; background: #eb4d4b; color: white; font-size: 9px; font-weight: bold; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1.5px solid #013f26; }
         
-        /* Search Bar with Internal Elements & QR Scanner Wrapper */
+        /* Exact Search Bar Layout with QR scan icon inside */
         .search-wrapper { position: relative; width: 100%; margin-top: 5px; }
-        .search-wrapper input { width: 100%; padding: 13px 45px 13px 44px; border: none; border-radius: 14px; background: rgba(255, 255, 255, 0.96); font-size: 14px; color: #444; outline: none; }
-        .search-wrapper .search-left-icon { position: absolute; left: 16px; top: 14px; color: #7f8c8d; font-size: 15px; }
-        .search-wrapper .qr-right-icon { position: absolute; right: 16px; top: 13px; color: #555; font-size: 17px; cursor: pointer; }
+        .search-wrapper input { width: 100%; padding: 13px 45px 13px 44px; border: none; border-radius: 14px; background: rgba(255, 255, 255, 0.96); font-size: 14px; color: #444; outline: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .search-wrapper .search-left-icon { position: absolute; left: 16px; top: 15px; color: #7f8c8d; font-size: 15px; }
+        .search-wrapper .qr-right-icon { position: absolute; right: 16px; top: 14px; color: #333; font-size: 18px; cursor: pointer; }
 
-        /* General Main Content Packaging */
+        /* Main Dashboard Core Layout */
         .main-layout { padding: 16px; }
 
-        /* Exact Match Slider Hero */
-        .hero-slider { background: linear-gradient(135deg, #091a14, #12281e); color: white; padding: 20px; border-radius: 20px; position: relative; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-height: 135px; }
-        .slider-details { max-width: 58%; }
-        .slider-details h2 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-        .slider-details p { font-size: 11px; color: #94a39b; margin-bottom: 14px; font-weight: 500; }
-        .order-action-btn { background: #00cc66; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        /* Banner Slider UI Setup */
+        .hero-slider { background: linear-gradient(135deg, #091a14, #12281e); color: white; padding: 22px 20px; border-radius: 20px; position: relative; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-height: 140px; overflow: hidden; }
+        .slider-details { max-width: 58%; text-align: left; }
+        .slider-details h2 { font-size: 23px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .slider-details p { font-size: 11.5px; color: #94a39b; margin-bottom: 14px; font-weight: 500; }
+        .order-action-btn { background: #00cc66; color: white; border: none; padding: 8px 18px; border-radius: 20px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        .food-graphic { width: 120px; height: 100px; background: url('https://unsplash.com') center/cover; border-radius: 16px; }
         
-        /* Food Item Mock Asset Placement */
-        .food-graphic { width: 120px; height: 100px; background: url('https://unsplash.com') center/cover; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
-        
-        /* Indicators Carousel Dots */
+        /* Carousel Indicator Dots below main slider */
         .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-bottom: 24px; }
         .indicator-dot { width: 6px; height: 6px; background: #dfe6e9; border-radius: 50%; }
-        .indicator-dot.active { width: 16px; height: 6px; background: #023e37; border-radius: 4px; }
+        .indicator-dot.active { width: 16px; height: 6px; background: #005a36; border-radius: 4px; }
 
-        /* Rounded Grid Elements Dashboard */
+        /* Perfect Application Categories Layout */
         .grid-categories-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 10px; margin-bottom: 26px; }
-        .grid-node { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #2d3436; }
-        .round-avatar { width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .grid-node { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #2d3436; cursor: pointer; }
+        .round-avatar { width: 58px; height: 58px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-radius: 50%; }
         .node-label { font-size: 11.5px; font-weight: 600; color: #2d3436; text-align: center; }
         
-        /* Icon Palette matching image directly */
-        .col-food { background-color: #ffebe6; color: #ff5252; }
-        .col-cloth { background-color: #e3f2fd; color: #1e88e5; }
-        .col-shoe { background-color: #ede7f6; color: #673ab7; }
-        .col-car { background-color: #e0f7fa; color: #00acc1; }
-        .col-decor { background-color: #fce4ec; color: #d81b60; }
-        .col-sound { background-color: #f3e5f5; color: #8e24aa; }
-        .col-elec { background-color: #e8f5e9; color: #43a047; }
-        .col-more { background-color: #f5f5f5; color: #616161; }
+        /* Color Code Matching from Image 1 */
+        .col-food { background-color: #fff2e6; color: #ff6600; }
+        .col-cloth { background-color: #e6f2ff; color: #0066ff; }
+        .col-shoe { background-color: #e6f7ff; color: #0099ff; }
+        .col-car { background-color: #e6ffe6; color: #00cc66; }
+        .col-decor { background-color: #ffe6eb; color: #ff3366; }
+        .col-sound { background-color: #f3e8ff; color: #9333ea; }
+        .col-elec { background-color: #e0f2fe; color: #0369a1; }
+        .col-more { background-color: #edf2f7; color: #4a5568; }
 
-        /* Beautiful Green Feature Banner */
-        .promo-marketing-card { background: linear-gradient(135deg, #0a5c36, #0e7545); color: white; padding: 16px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; box-shadow: 0 6px 18px rgba(10, 92, 54, 0.15); position: relative; }
+        /* Middle Campaign Green Banner Grid */
+        .promo-marketing-card { background: linear-gradient(135deg, #0a5c36, #0e7545); color: white; padding: 16px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; box-shadow: 0 6px 18px rgba(10, 92, 54, 0.15); }
         .promo-meta { text-align: left; }
         .promo-meta h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: #fff; }
         .promo-meta p { font-size: 11.5px; opacity: 0.9; }
-        .action-sub-btn { background: #00cc66; color: white; border: none; padding: 6px 14px; border-radius: 12px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+        .action-sub-btn { background: #00cc66; color: white; border: none; padding: 7px 15px; border-radius: 12px; font-size: 11px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 4px; }
 
-        /* Deals Header Components */
+        /* Offers Title Framework */
         .deals-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
         .deals-header h3 { font-size: 16px; font-weight: 700; color: #2c3e50; }
         .deals-header a { color: #7f8c8d; font-size: 12px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 3px; }
 
-        /* Bottom Fixed Navigation Frame */
+        /* Sticky Footer Navigation Bar Map Layout */
         .fixed-footer-nav { position: fixed; bottom: 0; width: 100%; max-width: 415px; background: #fff; display: flex; justify-content: space-between; padding: 10px 14px 12px; border-top: 1px solid #f1f2f6; z-index: 999; box-shadow: 0 -4px 15px rgba(0,0,0,0.04); }
         .footer-action-node { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #a4b0be; font-size: 10.5px; font-weight: 600; gap: 4px; width: 20%; }
-        .footer-action-node.active { color: #023e37; }
+        .footer-action-node.active { color: #005a36; }
         .footer-action-node i { font-size: 20px; }
         .cart-wrapper-rel { position: relative; }
     </style>
@@ -92,26 +91,26 @@
 <body>
 
     <div class="phone-container">
-        <!-- Exact Top Header Component Setup -->
+        <!-- Top App Navigation Container -->
         <header>
             <div class="top-bar">
                 <div class="logo-section">
-                    <div class="logo-img-mock"><i class="fa-solid fa-bolt" style="color: white;"></i></div>
+                    <div class="logo-icon-box"><i class="fa-solid fa-bag-shopping"></i></div>
                     <div class="logo-text">
                         <div class="brand-name">Zilax</div>
                         <div class="brand-sub">Shop • Rent • Live Better</div>
                     </div>
                 </div>
                 <div class="right-actions">
-                    <div class="icon-box-top"><i class="fa-regular fa-comments"></i></div>
-                    <div class="icon-box-top">
+                    <div class="icon-btn-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="icon-btn-wrapper">
                         <i class="fa-regular fa-bell"></i>
                         <span class="noti-badge">2</span>
                     </div>
                 </div>
             </div>
             
-            <!-- Compact Precise Input with Search & QR Icons -->
+            <!-- Precise Embedded Input Elements With Internal QR Asset -->
             <div class="search-wrapper">
                 <i class="fa-solid fa-magnifying-glass search-left-icon"></i>
                 <input type="text" placeholder="কী খুঁজছেন?">
@@ -119,10 +118,10 @@
             </div>
         </header>
 
-        <!-- Main Body Content Frame -->
+        <!-- Dynamic User Space Components Area -->
         <div class="main-layout">
             
-            <!-- Exact Banner Content Area -->
+            <!-- Target Promotional Food Graphic Element -->
             <div class="hero-slider">
                 <div class="slider-details">
                     <h2>মজাদার খাবার</h2>
@@ -132,7 +131,7 @@
                 <div class="food-graphic"></div>
             </div>
             
-            <!-- Match Carousel Indicators -->
+            <!-- Dynamic Indicators Dots Mapping -->
             <div class="carousel-dots">
                 <div class="indicator-dot active"></div>
                 <div class="indicator-dot"></div>
@@ -141,11 +140,8 @@
                 <div class="indicator-dot"></div>
             </div>
 
-            <!-- Categories Symmetric Grid Grid System -->
+            <!-- Categories Symmetric Grid System mapping -->
             <div class="grid-categories-box">
                 <div class="grid-node">
                     <div class="round-avatar col-food"><i class="fa-solid fa-burger"></i></div>
                     <div class="node-label">খাবার</div>
-                </div>
-                <div class="grid-node">
-                    <div class="round-avatar col-cloth"><i class="fa-solid fa-shirt"></i></div>
