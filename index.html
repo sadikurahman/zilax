@@ -1,181 +1,1152 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zilax - Shop • Rent • Live Better</title>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
-        body { background-color: #f4f6f8; color: #333; padding-bottom: 70px; display: flex; justify-content: center; }
-        
-        /* Mobile Screen Container Mockup */
-        .phone-container { width: 100%; max-width: 430px; background: #fff; min-height: 100vh; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.1); overflow-x: hidden; }
-        
-        /* Header */
-        header { background-color: #0b6623; padding: 20px 16px 15px; color: white; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
-        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .logo { font-size: 24px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
-        .logo span { color: #fff; }
-        .header-icons { display: flex; gap: 15px; font-size: 20px; position: relative; }
-        .badge { position: absolute; top: -5px; right: -5px; background: red; color: white; font-size: 10px; padding: 2px 5px; border-radius: 50%; }
-        
-        /* Search Bar */
-        .search-container { position: relative; width: 100%; }
-        .search-container input { width: 100%; padding: 12px 40px 12px 40px; border: none; border-radius: 25px; background: #fff; font-size: 14px; color: #666; }
-        .search-container .fa-search { position: absolute; left: 15px; top: 14px; color: #999; }
-        .search-container .fa-sliders { position: absolute; right: 15px; top: 14px; color: #999; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Main Content */
-        .content { padding: 16px; }
+<title>Zilax - Shop • Rent • Live Better</title>
 
-        /* Banner Slider */
-        .banner { background: linear-gradient(to right, #111, #333); color: white; padding: 20px; border-radius: 15px; position: relative; overflow: hidden; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .banner-text h2 { font-size: 20px; color: #fff; margin-bottom: 5px; }
-        .banner-text p { font-size: 12px; color: #ccc; margin-bottom: 12px; }
-        .banner-btn { background: #0b6623; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; }
-        .banner-img { width: 100px; height: 100px; background: url('https://unsplash.com') center/cover; border-radius: 10px; }
-        .dots { display: flex; justify-content: center; gap: 5px; margin-top: -10px; margin-bottom: 20px; }
-        .dot { width: 6px; height: 6px; background: #ccc; border-radius: 50%; }
-        .dot.active { width: 18px; height: 6px; background: #0b6623; border-radius: 5px; }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Grid Categories */
-        .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
-        .category-item { display: flex; flex-direction: column; align-items: center; text-align: center; text-decoration: none; color: #333; }
-        .icon-box { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .cat-text { font-size: 12px; font-weight: 500; }
-        
-        /* Specific Icon Colors to match image */
-        .bg-food { background-color: #ffe6e6; color: #ff4d4d; }
-        .bg-cloth { background-color: #e6f2ff; color: #3399ff; }
-        .bg-shoe { background-color: #e6ffe6; color: #00cc66; }
-        .bg-car { background-color: #fff0e6; color: #ff9933; }
-        .bg-decor { background-color: #f9f0ff; color: #b366ff; }
-        .bg-sound { background-color: #edf7f7; color: #008080; }
-        .bg-elec { background-color: #fffde6; color: #ccb300; }
-        .bg-more { background-color: #f2f2f2; color: #666; }
+body{
+    font-family:Arial, "Noto Sans Bengali", sans-serif;
+    background:#f6f8f7;
+    color:#102a2a;
+}
 
-        /* Promo Banner Middle */
-        .promo-banner { background: linear-gradient(135deg, #05471b, #0b6623); color: white; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
-        .promo-text h4 { font-size: 15px; margin-bottom: 4px; }
-        .promo-text p { font-size: 11px; opacity: 0.8; }
-        .promo-btn { background: #fff; color: #0b6623; border: none; padding: 6px 12px; border-radius: 15px; font-size: 11px; font-weight: bold; }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-        /* Product Section Section Header */
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .section-header h3 { font-size: 16px; font-weight: 700; }
-        .section-header a { color: #999; font-size: 12px; text-decoration: none; }
+button{
+    border:none;
+    cursor:pointer;
+}
 
-        /* Bottom Navigation Bar */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; max-width: 430px; background: #fff; display: flex; justify-content: space-between; padding: 10px 20px; border-top: 1px solid #eee; z-index: 100; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: #999; font-size: 11px; font-weight: 500; gap: 4px; }
-        .nav-item.active { color: #0b6623; }
-        .nav-item i { font-size: 20px; }
-    </style>
+/* ================= HEADER ================= */
+
+.header{
+    background:#062b32;
+    color:white;
+    padding:14px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background:#08c878;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.logo-text{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo-text small{
+    display:block;
+    font-size:8px;
+    letter-spacing:1px;
+    color:#a8d8ce;
+}
+
+.nav{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.nav a{
+    font-size:14px;
+    color:#dbe9e7;
+}
+
+.nav a:hover{
+    color:#00d084;
+}
+
+.header-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.login{
+    background:transparent;
+    border:1px solid #8ba5a3;
+    color:white;
+    padding:9px 16px;
+    border-radius:9px;
+}
+
+.signup{
+    background:#08c878;
+    color:white;
+    padding:9px 16px;
+    border-radius:9px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:460px;
+    background:
+    linear-gradient(90deg,rgba(3,38,44,.96),rgba(3,38,44,.72),rgba(3,38,44,.20)),
+    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+    padding:70px 5%;
+    color:white;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    background:#08c878;
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.08;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#09d47f;
+}
+
+.hero p{
+    color:#d7e5e2;
+    font-size:17px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+/* Search */
+
+.search-box{
+    background:white;
+    border-radius:14px;
+    padding:7px;
+    display:flex;
+    max-width:620px;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:14px;
+    font-size:15px;
+}
+
+.category-select{
+    border:none;
+    padding:0 15px;
+    color:#526563;
+    background:white;
+}
+
+.search-btn{
+    background:#08c878;
+    color:white;
+    padding:0 25px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:45px 5%;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    font-size:27px;
+}
+
+.section-title p{
+    color:#71817f;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.view-all{
+    color:#00a968;
+    font-weight:bold;
+}
+
+/* ================= CATEGORY ================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:15px;
+}
+
+.category{
+    background:white;
+    border-radius:16px;
+    padding:15px 8px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.04);
+    transition:.2s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+}
+
+.category-img{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:10px;
+}
+
+.category h3{
+    font-size:14px;
+}
+
+.category p{
+    color:#82908e;
+    font-size:10px;
+    margin-top:5px;
+}
+
+/* ================= PROMO ================= */
+
+.promo{
+    margin-top:10px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:15px;
+}
+
+.promo-big,
+.promo-small{
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    min-height:230px;
+}
+
+.promo-big{
+    background:
+    linear-gradient(90deg,rgba(0,55,50,.92),rgba(0,55,50,.15)),
+    url("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1000&q=80")
+    center/cover;
+    padding:35px;
+    color:white;
+}
+
+.promo-big h2{
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.promo-big p{
+    margin-bottom:20px;
+}
+
+.promo-btn{
+    background:#08c878;
+    color:white;
+    padding:12px 20px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.promo-small{
+    background:
+    linear-gradient(90deg,rgba(0,30,38,.8),rgba(0,30,38,.2)),
+    url("https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80")
+    center/cover;
+    padding:30px;
+    color:white;
+}
+
+.promo-small h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+    position:relative;
+}
+
+.product-img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:13px;
+}
+
+.product-info h3{
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.shop{
+    color:#7c8988;
+    font-size:11px;
+}
+
+.rating{
+    color:#e8a400;
+    font-size:12px;
+    margin:7px 0;
+}
+
+.price{
+    color:#00a968;
+    font-size:17px;
+    font-weight:bold;
+}
+
+.order{
+    width:100%;
+    background:#08bd70;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+/* ================= WHY ZILAX ================= */
+
+.why{
+    background:#e9f8f2;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.feature h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.feature p{
+    color:#758481;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#062b32;
+    color:white;
+    padding:45px 5% 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer h3{
+    margin-bottom:15px;
+}
+
+.footer p,
+.footer a{
+    color:#abc0bd;
+    font-size:13px;
+    line-height:2;
+}
+
+.footer-bottom{
+    border-top:1px solid #315055;
+    margin-top:35px;
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    color:#8da5a2;
+    font-size:12px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav{
+        display:none;
+    }
+
+    .header{
+        padding:12px 4%;
+    }
+
+    .login{
+        display:none;
+    }
+
+    .logo-text{
+        font-size:21px;
+    }
+
+    .hero{
+        min-height:510px;
+        padding:45px 5%;
+        background:
+        linear-gradient(90deg,rgba(3,38,44,.92),rgba(3,38,44,.55)),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80")
+        center/cover;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .search-box{
+        flex-wrap:wrap;
+        padding:7px;
+    }
+
+    .search-box input{
+        width:100%;
+        flex:none;
+    }
+
+    .category-select{
+        flex:1;
+        padding:12px 5px;
+    }
+
+    .search-btn{
+        padding:12px 18px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(4,1fr);
+        gap:10px;
+    }
+
+    .category{
+        padding:10px 4px;
+    }
+
+    .category-img{
+        width:58px;
+        height:58px;
+    }
+
+    .category h3{
+        font-size:12px;
+    }
+
+    .category p{
+        display:none;
+    }
+
+    .promo{
+        grid-template-columns:1fr;
+    }
+
+    .promo-big{
+        min-height:220px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .product-img{
+        height:145px;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .feature{
+        padding:18px 10px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:8px;
+    }
+}
+
+/* Small phones */
+
+@media(max-width:420px){
+
+    .header-buttons{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .section{
+        padding:32px 4%;
+    }
+
+    .section-title h2{
+        font-size:22px;
+    }
+
+    .section-title p{
+        font-size:11px;
+    }
+
+    .category-img{
+        width:52px;
+        height:52px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-img{
+        height:125px;
+    }
+
+    .product-info{
+        padding:10px;
+    }
+
+    .price{
+        font-size:15px;
+    }
+}
+</style>
 </head>
+
+
 <body>
 
-    <div class="phone-container">
-        <!-- Header Section -->
-        <header>
-            <div class="top-bar">
-                <div class="logo"><i class="fa-solid fa-leaf"></i> <span>Zilax</span></div>
-                <div class="header-icons">
-                    <i class="fa-solid fa-magnifying-glass" style="margin-right: 10px;"></i>
-                    <i class="fa-regular fa-bell"></i>
-                    <span class="badge">2</span>
-                </div>
-            </div>
-            <div class="search-container">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="কী খুঁজছেন?">
-                <i class="fa-solid fa-sliders"></i>
-            </div>
-        </header>
+<!-- ================= HEADER ================= -->
 
-        <!-- Main Content Area -->
-        <div class="content">
-            
-            <!-- Hero Banner Slider Placeholder -->
-            <div class="banner">
-                <div class="banner-text">
-                    <h2>মজাদার খাবার</h2>
-                    <p>এখন আপনার হাতের নাগালে!</p>
-                    <button class="banner-btn">অর্ডার করুন &rarr;</button>
-                </div>
-                <div class="banner-img"></div>
-            </div>
-            <div class="dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
+<header class="header">
 
-            <!-- Categories Grid (8 Items Matching Image) -->
-            <div class="categories-grid">
-                <div class="category-item">
-                    <div class="icon-box bg-food"><i class="fa-solid fa-hamburger"></i></div>
-                    <div class="cat-text">খাবার</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-cloth"><i class="fa-solid fa-shirt"></i></div>
-                    <div class="cat-text">কাপড়</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-shoe"><i class="fa-solid fa-shoe-prints"></i></div>
-                    <div class="cat-text">জুতা</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-car"><i class="fa-solid fa-car"></i></div>
-                    <div class="cat-text">রেন্ট এ কার</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-decor"><i class="fa-solid fa-couch"></i></div>
-                    <div class="cat-text">ডেকোরেশন</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-sound"><i class="fa-solid fa-volume-high"></i></div>
-                    <div class="cat-text">সাউন্ড সিস্টেম</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-elec"><i class="fa-solid fa-laptop"></i></div>
-                    <div class="cat-text">ইলেকট্রনিক্স</div>
-                </div>
-                <div class="category-item">
-                    <div class="icon-box bg-more"><i class="fa-solid fa-ellipsis"></i></div>
-                    <div class="cat-text">আরও</div>
-                </div>
-            </div>
+    <div class="logo">
+        <div class="logo-icon">Z</div>
 
-            <!-- Green App Feature Promo Banner -->
-            <div class="promo-banner">
-                <div class="promo-text">
-                    <h4>সবকিছু এক প্ল্যাটফর্মে</h4>
-                    <p>ঘরে বসেই অর্ডার করুন!</p>
-                </div>
-                <button class="promo-btn">অভিনন্দন &rarr;</button>
-            </div>
+        <div class="logo-text">
+            Zilax
+            <small>SHOP • RENT • LIVE BETTER</small>
+        </div>
+    </div>
 
-            <!-- Section Title for Offers -->
-            <div class="section-header">
-                <h3>আজকের সেরা অফার</h3>
-                <a href="#">সব দেখুন &rarr;</a>
+    <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#why">Why Zilax</a>
+    </nav>
+
+    <div class="header-buttons">
+        <button class="login">Login</button>
+        <button class="signup">Sign Up</button>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">Everything You Need</span>
+
+        <h1>
+            Shop, Rent &<br>
+            <span>Enjoy Together</span>
+        </h1>
+
+        <p>
+            খাবার থেকে কাপড়, জুতা থেকে গাড়ি —
+            আপনার প্রয়োজনীয় সবকিছু এখন এক জায়গায়।
+        </p>
+
+        <div class="search-box">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="আপনি কী খুঁজছেন?"
+            >
+
+            <select class="category-select">
+                <option>সব ক্যাটাগরি</option>
+                <option>খাবার</option>
+                <option>কাপড়</option>
+                <option>জুতা</option>
+                <option>Rent a Car</option>
+                <option>Decoration</option>
+                <option>Sound System</option>
+            </select>
+
+            <button class="search-btn" onclick="searchProduct()">
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+    <div class="section-title">
+
+        <div>
+            <h2>জনপ্রিয় ক্যাটাগরি</h2>
+            <p>আপনার প্রয়োজনীয় জিনিস সহজেই খুঁজে নিন</p>
+        </div>
+
+        <a class="view-all" href="#">সব দেখুন →</a>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=300&q=80">
+            <h3>🍔 খাবার</h3>
+            <p>রেস্টুরেন্ট ও খাবার</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=300&q=80">
+            <h3>👕 কাপড়</h3>
+            <p>ফ্যাশন ও পোশাক</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80">
+            <h3>👟 জুতা</h3>
+            <p>সব ধরনের জুতা</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=300&q=80">
+            <h3>🚗 Rent a Car</h3>
+            <p>গাড়ি ভাড়া</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80">
+            <h3>🏠 Decoration</h3>
+            <p>সাজসজ্জা</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?auto=format&fit=crop&w=300&q=80">
+            <h3>🔊 Sound</h3>
+            <p>সাউন্ড সিস্টেম</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=300&q=80">
+            <h3>💻 Electronics</h3>
+            <p>ইলেকট্রনিক্স</p>
+        </div>
+
+        <div class="category">
+            <img class="category-img"
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=300&q=80">
+            <h3>🎉 Event</h3>
+            <p>ইভেন্ট সার্ভিস</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROMOTION ================= -->
+
+<section class="section">
+
+    <div class="promo">
+
+        <div class="promo-big">
+
+            <h2>মজাদার খাবার 🍔</h2>
+
+            <p>
+                আপনার পছন্দের খাবার এখন ঘরে বসেই অর্ডার করুন।
+            </p>
+
+            <button class="promo-btn">
+                অর্ডার করুন →
+            </button>
+
+        </div>
+
+
+        <div class="promo-small">
+
+            <h3>Trendy Fashion 👕</h3>
+
+            <p>নতুন কালেকশন দেখুন</p>
+
+            <br>
+
+            <button class="promo-btn">
+                Shop Now →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+
+        <div>
+            <h2>আজকের সেরা অফার 🔥</h2>
+            <p>আপনার জন্য বাছাই করা কিছু জনপ্রিয় পণ্য</p>
+        </div>
+
+        <a href="#" class="view-all">
+            সব দেখুন →
+        </a>
+
+    </div>
+
+
+    <div class="products">
+
+        <!-- Food -->
+
+        <div class="product">
+
+            <img class="product-img"
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80">
+
+            <div class="product-info">
+
+                <h3>Chicken Pizza</h3>
+
+                <div class="shop">Pizza House</div>
+
+                <div class="rating">★ 4.8 (1.2k)</div>
+
+                <div class="price">৳ 350</div>
+
+                <button class="order"
+                onclick="order('Chicken Pizza')">
+                    অর্ডার করুন
+                </button>
+
             </div>
 
         </div>
 
-        <!-- Bottom Navigation Bar Map -->
-        <div class="bottom-nav">
-            <a href="#" class="nav-item active">
-                <i class="fa-solid fa-house"></i>
-                <div>হোম</div>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-grid-2-column"></i>
-                <div>ক্যাটাগরি</div>
-            </a>
-            <a href="#" class="nav-item" style="position: relative;">
-                <i class="fa-solid fa-basket-shopping"></i>
-                <div>কার্ট</div>
+
+        <!-- Food -->
+
+        <div class="product">
+
+            <img class="product-img"
+            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80">
+
+            <div class="product-info">
+
+                <h3>Classic Burger</h3>
+
+                <div class="shop">Burger House</div>
+
+                <div class="rating">★ 4.7 (980)</div>
+
+                <div class="price">৳ 220</div>
+
+                <button class="order"
+                onclick="order('Classic Burger')">
+                    অর্ডার করুন
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Clothing -->
+
+        <div class="product">
+
+            <img class="product-img"
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80">
+
+            <div class="product-info">
+
+                <h3>Men's T-Shirt</h3>
+
+                <div class="shop">Fashion World</div>
+
+                <div class="rating">★ 4.6 (1.1k)</div>
+
+                <div class="price">৳ 450</div>
+
+                <button class="order"
+                onclick="order('Mens T-Shirt')">
+                    অর্ডার করুন
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Shoes -->
+
+        <div class="product">
+
+            <img class="product-img"
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80">
+
+            <div class="product-info">
+
+                <h3>Running Shoes</h3>
+
+                <div class="shop">Shoe Store</div>
+
+                <div class="rating">★ 4.8 (850)</div>
+
+                <div class="price">৳ 2,200</div>
+
+                <button class="order"
+                onclick="order('Running Shoes')">
+                    অর্ডার করুন
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Car -->
+
+        <div class="product">
+
+            <img class="product-img"
+            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=500&q=80">
+
+            <div class="product-info">
+
+                <h3>Toyota Corolla</h3>
+
+                <div class="shop">Premium Rent</div>
+
+                <div class="rating">★ 4.8 (560)</div>
+
+                <div class="price">৳ 2,500 / দিন</div>
+
+                <button class="order"
+                onclick="order('Toyota Corolla')">
+                    বুক করুন
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Decoration -->
+
+        <div class="product">
+
+            <img class="product-img"
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80">
+
+            <div class="product-info">
+
+                <h3>Wedding Decoration</h3>
+
+                <div class="shop">Dream Decoration</div>
+
+                <div class="rating">★ 4.9 (320)</div>
+
+                <div class="price">৳ 5,000</div>
+
+                <button class="order"
+                onclick="order('Wedding Decoration')">
+                    বুক করুন
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY ZILAX ================= -->
+
+<section class="section why" id="why">
+
+    <div class="section-title">
+
+        <div>
+            <h2>কেন Zilax?</h2>
+            <p>Shopping এবং Rental—দুটোই সহজ করার জন্য</p>
+        </div>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🛍️</div>
+            <h3>সবকিছু এক জায়গায়</h3>
+            <p>
+                খাবার, কাপড়, জুতা, গাড়ি,
+                decoration এবং আরও অনেক কিছু।
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💰</div>
+            <h3>সহজ দাম</h3>
+            <p>
+                বিভিন্ন seller ও service provider
+                থেকে সহজেই দাম তুলনা করুন।
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Trusted Sellers</h3>
+            <p>
+                Verified seller ও service provider
+                থেকে অর্ডার করার সুবিধা।
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>সহজ Order</h3>
+            <p>
+                কয়েকটি ক্লিকেই product order
+                অথবা rental booking করুন।
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+            <div class="logo">
+                <div class="logo-icon">Z</div>
+
+                <div class="logo-text">
+                    Zilax
+                    <small>SHOP • RENT • LIVE BETTER</small>
+                </div>
+            </div>
+
+            <br>
+
+            <p>
+                Shop, Rent & Live Better.
+                আপনার প্রয়োজনীয় সবকিছু এক জায়গায়।
+            </p>
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <p><a href="#">Home</a></p>
+            <p><a href="#">Categories</a></p>
+            <p><a href="#">About Us</a></p>
+            <p><a href="#">Contact</a></p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Categories</h3>
+
+            <p>খাবার</p>
+            <p>কাপড়</p>
+            <p>জুতা</p>
+            <p>Rent a Car</p>
+
+        </div>
+
+
+        <div>
+
+            <h3>More</h3>
+
+            <p>Decoration</p>
+            <p>Sound System</p>
+            <p>Electronics</p>
+            <p>Event Service</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>© 2026 Zilax. All rights reserved.</span>
+
+        <span>Privacy Policy • Terms & Conditions</span>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* Search */
+
+function searchProduct(){
+
+    const input =
+        document.getElementById("searchInput").value.trim();
+
+    if(input === ""){
+
+        alert("আপনি কী খুঁজছেন লিখুন।");
+
+    }else{
+
+        alert("আপনি খুঁজছেন: " + input);
+
+    }
+
+}
+
+
+/* Order */
+
+function order(product){
+
+    alert(
+        product +
+        " অর্ডার/বুকিং করার জন্য পরবর্তী ধাপে নেওয়া হবে।"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
