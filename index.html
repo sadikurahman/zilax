@@ -355,8 +355,74 @@ html[lang=bn] body{font-family:"Hind Siliguri","DM Sans",sans-serif}
 .sw i{position:absolute;inset:0;border-radius:26px;background:#16b86a;transition:.25s}.sw i:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.25s;transform:translateX(20px)}
 .sw input:checked+i{background:#c8d2cc}.sw input:checked+i:after{transform:none}
 .opt .qnote{margin-top:10px;min-height:84px;resize:vertical;font-size:16px}
+
+/* ===== Zilax Auth modal (Tailwind utilities + small custom layer for states) ===== */
+.zxa-ov{position:fixed;inset:0;z-index:500;display:none;align-items:flex-end;justify-content:center;background:rgba(8,22,16,.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.zxa-ov.open{display:flex}
+@media(min-width:640px){.zxa-ov{align-items:center}}
+.zxa{font-family:Inter,"Hind Siliguri",system-ui,sans-serif;color:#0b1f17;animation:zxaUp .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes zxaUp{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:none}}
+.zxa h2{margin:0;font-weight:700;letter-spacing:-.02em}
+.zxa-tabs{position:relative;display:grid;grid-template-columns:1fr 1fr;background:rgba(15,40,28,.06);border-radius:16px;padding:4px}
+.zxa-tabs i{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.zxa-tabs[data-i="1"] i{transform:translateX(100%)}
+.zxa-tabs button{position:relative;z-index:1;border:0;background:none;padding:11px 6px;font:600 13px Inter,"Hind Siliguri",sans-serif;color:#5d7167;cursor:pointer;transition:color .3s}
+.zxa-tabs button.on{color:#0b1f17}
+.zxa-f{margin-bottom:14px}
+.zxa-w{position:relative}
+.zxa-i{width:100%;height:56px;border:1.5px solid #dfe8e2;border-radius:16px;background:rgba(255,255,255,.75);padding:22px 14px 6px;font:500 16px Inter,"Hind Siliguri",sans-serif;color:#0b1f17;outline:none;transition:all .25s ease;appearance:none;-webkit-appearance:none}
+textarea.zxa-i{height:auto;min-height:84px;padding-top:26px;resize:vertical}
+.zxa-w label{position:absolute;left:15px;top:18px;font-size:15px;color:#7a8c82;pointer-events:none;transform-origin:left top;transition:all .2s ease}
+.zxa-i:focus+label,.zxa-i:not(:placeholder-shown)+label,.zxa-up label{transform:translateY(-12px) scale(.78);color:#087b49}
+.zxa-i:focus{border-color:#16b86a;box-shadow:0 0 0 4px rgba(22,184,106,.15)}
+.zxa-f.ok .zxa-i{border-color:#16b86a}
+.zxa-f.bad .zxa-i{border-color:#ef5350;background:rgba(239,83,80,.04)}
+.zxa-f.bad .zxa-i:focus{box-shadow:0 0 0 4px rgba(239,83,80,.14)}
+.zxa-f.bad label{color:#d84340}
+.zxa-e{margin:4px 2px 0;font-size:12px;color:#d84340;min-height:0;max-height:0;opacity:0;overflow:hidden;transition:all .25s}
+.zxa-f.bad .zxa-e{max-height:30px;opacity:1}
+.zxa-s{padding-right:34px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%237a8c82' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.zxa-s:disabled{opacity:.55;cursor:not-allowed}
+.zxa-lock{background:#f1f6f3;color:#4b6256;cursor:not-allowed}
+.zxa-eye{position:absolute;right:10px;top:12px;border:0;background:none;font-size:12px;font-weight:600;color:#087b49;padding:6px;cursor:pointer}
+.zxa-btn{display:block;width:100%;border:0;border-radius:16px;padding:16px;font:700 15px Inter,"Hind Siliguri",sans-serif;cursor:pointer;transition:all .3s ease;background:#0b1f17;color:#fff}
+.zxa-btn:hover{transform:scale(1.025);box-shadow:0 12px 28px rgba(11,31,23,.25)}
+.zxa-btn:active{transform:scale(.98)}
+.zxa-btn.ghost{background:#fff;color:#0b1f17;border:1.5px solid #dfe8e2}
+.zxa-btn.ghost:hover{box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.zxa-btn:disabled{opacity:.5;cursor:wait;transform:none}
+.zxa-or{display:flex;align-items:center;gap:12px;margin:18px 0 12px;color:#8a9a92;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.zxa-or:before,.zxa-or:after{content:"";flex:1;height:1px;background:#e3ebe6}
+.zxa-sec{margin:6px 0 10px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#7a8c82}
+.zxa-pane{animation:zxaIn .35s ease}
+@keyframes zxaIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.zxa-prog{display:flex;align-items:center;margin:4px 0 18px}
+.zxa-prog b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#e8efe9;color:#7a8c82;font-size:13px;transition:all .35s;flex:none}
+.zxa-prog b.on{background:#0b1f17;color:#fff}.zxa-prog b.done{background:#16b86a;color:#fff}
+.zxa-prog span{flex:1;height:3px;background:#e8efe9;margin:0 6px;border-radius:3px;overflow:hidden}
+.zxa-prog span i{display:block;height:100%;width:0;background:#16b86a;transition:width .45s ease}
+.zxa-prog span.full i{width:100%}
+.zxa-chips{display:flex;flex-wrap:wrap;gap:8px}
+.zxa-chips label{cursor:pointer}.zxa-chips input{display:none}
+.zxa-chips span{display:inline-block;padding:9px 14px;border:1.5px solid #dfe8e2;border-radius:999px;font:600 13px Inter,"Hind Siliguri",sans-serif;transition:all .25s;background:#fff}
+.zxa-chips input:checked+span{background:#0b1f17;color:#fff;border-color:#0b1f17;transform:scale(1.04)}
+.zxa-drop{display:block;border:2px dashed #cfdcd3;border-radius:20px;padding:26px 14px;text-align:center;cursor:pointer;transition:all .25s;background:rgba(255,255,255,.6)}
+.zxa-drop:hover,.zxa-drop.drag{border-color:#16b86a;background:rgba(22,184,106,.07);transform:scale(1.015)}
+.zxa-drop.bad{border-color:#ef5350}.zxa-drop.ok{border-style:solid;border-color:#16b86a}
+.zxa-file{display:flex;align-items:center;gap:10px;margin-top:10px;padding:10px;border:1px solid #dfe8e2;border-radius:14px;background:#fff;font-size:13px}
+.zxa-file img{width:42px;height:42px;object-fit:cover;border-radius:10px}
+.zxa-link{border:0;background:none;color:#087b49;font-weight:700;cursor:pointer;font-size:13px}
+.zxa-ok{text-align:center;padding:26px 6px}.zxa-ok .tick{width:64px;height:64px;border-radius:50%;background:#16b86a;color:#fff;display:grid;place-items:center;font-size:30px;margin:0 auto 14px;animation:zxaPop .5s}
+@keyframes zxaPop{from{transform:scale(0)}to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.zxa,.zxa-pane,.zxa-btn,.zxa-i{animation:none!important;transition:none!important}}
+.zxa{width:100%;max-width:480px;max-height:94vh;overflow-y:auto;position:relative;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.7);border-radius:28px 28px 0 0;padding:20px;box-shadow:0 30px 80px rgba(0,0,0,.25);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+@media(min-width:640px){.zxa{border-radius:28px;padding:28px}}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={prefix:"tw-",corePlugins:{preflight:false}}</script>
 </head>
 
 <body>
@@ -989,6 +1055,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.search')&&!e.target
 window.ZX_ITEM=ITEM;window.ZX_SHOPS=SHOPS;Z.go();setLang(lang);
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ===== Zilax v4: Food live orders + Technical custom quotes (Supabase-ready) =====
    Supabase setup (optional): add the supabase-js v2 script tag (cdn.jsdelivr.net/npm/@supabase/supabase-js@2),
@@ -998,7 +1065,7 @@ window.ZX_ITEM=ITEM;window.ZX_SHOPS=SHOPS;Z.go();setLang(lang);
 const Z=window.ZX,{db,esc,phone,R,cartGet,sync}=Z,ITEM=window.ZX_ITEM,SHOPS=window.ZX_SHOPS;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const view=$('#view'),fmt=n=>money(n);
-const CFG={supabase:{url:'',anonKey:''},delivery:60,adminPin:'1234'};   // adminPin is a prototype gate only
+const CFG={supabase:{url:'https://ggprxbkneyswfnqbgilr.supabase.co',anonKey:'sb_publishable_R0PvNFTpHu65OwC0xTTfzQ_3WjaTNbm'},delivery:60,adminPin:'1234'};   // adminPin is a prototype gate only
 const uid=p=>p+'-'+Date.now().toString(36).toUpperCase().slice(-5)+Math.floor(Math.random()*90+10);
 const TXT={
  steps:['Pending','Preparing','Out for Delivery'],
@@ -1020,16 +1087,16 @@ class LocalRepo{
   async upsert(r){const a=await this.list(),i=a.findIndex(x=>x.id===r.id);if(i<0)a.unshift(r);else a[i]={...a[i],...r};await this._save(a)}
   subscribe(f){this.subs.push(f)}}
 class SupabaseRepo{   // table(id text pk, status text, data jsonb, created_at timestamptz)
-  constructor(t){this.t=t;this.c=window.supabase.createClient(CFG.supabase.url,CFG.supabase.anonKey)}
+  constructor(t,poll){this.t=t;this.poll=poll;SupabaseRepo.c=SupabaseRepo.c||window.supabase.createClient(CFG.supabase.url,CFG.supabase.anonKey);this.c=SupabaseRepo.c}
   static row(r){return{id:r.id,status:r.status||null,data:r}}
   static obj(x){return{...x.data,id:x.id,status:x.status||x.data.status}}
-  async list(){const{data,error}=await this.c.from(this.t).select('*').order('created_at',{ascending:false});if(error)console.error(error);return(data||[]).map(SupabaseRepo.obj)}
+  async list(){const{data,error}=await this.c.from(this.t).select('*').order('created_at',{ascending:false});if(error){console.error(error);if(!SupabaseRepo.warned){SupabaseRepo.warned=1;if(window.showToast)showToast('Cloud sync problem: check Supabase tables')}}return(data||[]).map(SupabaseRepo.obj)}
   async insert(r){const{error}=await this.c.from(this.t).insert(SupabaseRepo.row(r));if(error)throw error;return r}
   async update(id,p){const cur=(await this.list()).find(x=>x.id===id),n={...cur,...p};const{error}=await this.c.from(this.t).update({status:n.status||null,data:n}).eq('id',id);if(error)throw error;return n}
   async upsert(r){const{error}=await this.c.from(this.t).upsert(SupabaseRepo.row(r));if(error)throw error}
-  subscribe(f){this.c.channel('rt-'+this.t).on('postgres_changes',{event:'*',schema:'public',table:this.t},f).subscribe()}}
-const makeRepo=t=>CFG.supabase.url&&CFG.supabase.anonKey&&window.supabase?new SupabaseRepo(t):new LocalRepo('zilax_'+t);
-const foodRepo=makeRepo('food_orders'),jobRepo=makeRepo('job_tickets'),stockRepo=makeRepo('menu_stock');
+  subscribe(f){this.c.channel('rt-'+this.t).on('postgres_changes',{event:'*',schema:'public',table:this.t},f).subscribe();if(this.poll)setInterval(f,8000)}}
+const makeRepo=(t,poll)=>CFG.supabase.url&&CFG.supabase.anonKey&&window.supabase?new SupabaseRepo(t,poll):new LocalRepo('zilax_'+t);
+const foodRepo=makeRepo('food_orders',true),jobRepo=makeRepo('job_tickets'),stockRepo=makeRepo('menu_stock');
 
 /* ---------- overlay (used by checkout, tracker, quote modal) ---------- */
 document.body.insertAdjacentHTML('beforeend','<div class="zvo" id="zvo" role="dialog" aria-modal="true"><div class="zvb" id="zvb"></div></div>');
@@ -1160,6 +1227,164 @@ jobRepo.subscribe(()=>{if(location.hash.startsWith('#/admin')&&sessionStorage.ge
 
 /* ---------- start ---------- */
 loadStock().then(()=>{Z.go();pill()});
+})();
+</script>
+<script>
+/* ===== Zilax Auth & Onboarding modal (Tailwind CDN utilities, prefix "tw-") ===== */
+(function(){
+'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- data & copy (swap for API data later) ---------- */
+const GEO={district:'Jamalpur',upazila:{
+  Islampur:['ইসলামপুর পৌরসভা','কুলকান্দি ইউনিয়ন','বেলগাছা ইউনিয়ন','চিনাডুলী ইউনিয়ন','সাপধরী ইউনিয়ন','নোয়ারপাড়া ইউনিয়ন','ইসলামপুর ইউনিয়ন','পাথর্শী ইউনিয়ন','পলবান্ধা ইউনিয়ন','গোয়ালেরচর ইউনিয়ন','গাইবান্ধা ইউনিয়ন','চর পুটিমারী ইউনিয়ন','চর গোয়ালিনী ইউনিয়ন'],
+  Dewangonj:['দেওয়ানগঞ্জ পৌরসভা','ডাংধরা ইউনিয়ন','চর আমখাওয়া ইউনিয়ন','পার রামরামপুর ইউনিয়ন','হাতীভাঙ্গা ইউনিয়ন','বাহাদুরাবাদ ইউনিয়ন','চিকাজানী ইউনিয়ন','চুকাইবাড়ী ইউনিয়ন','দেওয়ানগঞ্জ ইউনিয়ন']}};
+const CATS=['Burgers','Pizza','Biryani','Chinese','Desserts','Drinks'],ADDONS=['Extra cheese','Extra sauce','French fries','Cold drink','Extra spicy'];
+const TXT={title:{customer:'Create your account',merchant:'Grow with Zilax',login:'Welcome back'},sub:{customer:'Order food and book services in your area.',merchant:'Open your restaurant on Zilax in 3 simple steps.',login:'Log in with your email or mobile number.'},
+  steps:['Business','Menu','Verify'],docs:['Trade License','NID Card']};
+const BD=/^(?:\+?88)?01[3-9]\d{8}$/;
+const RULES={
+  required:v=>v.trim()?'':'This field is required',
+  select:v=>v?'':'Please make a selection',
+  name:v=>!v.trim()?'Please enter a name':v.trim().length<3?'That looks too short':'',
+  mobile:v=>!v.trim()?'Mobile number is required':BD.test(v.replace(/[\s-]/g,''))?'':'Enter a valid number (01XXXXXXXXX)',
+  email:v=>!v.trim()?'Email is required':/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())?'':'Enter a valid email address',
+  password:v=>!v?'Password is required':v.length<8?'Use at least 8 characters':'',
+  price:v=>!v?'Enter a price':+v>0?'':'Price must be above 0',
+  ident:v=>{const t=v.trim();return !t?'Enter your email or mobile number':t.includes('@')?RULES.email(t):/^[\d+\s-]+$/.test(t)?RULES.mobile(t):'Enter a valid email or mobile number (01XXXXXXXXX)'},
+  address:v=>v.trim().length<10?'Please enter the full address (min 10 characters)':''};
+
+/* ---------- hooks: connect Supabase here (default = demo storage, never stores passwords) ---------- */
+const keep=(k,v)=>{try{const a=JSON.parse(localStorage.getItem(k))||[];a.unshift(v);localStorage.setItem(k,JSON.stringify(a))}catch(e){}};
+const hooks={
+  async customer(p,pw){/* TODO: await sb.auth.signUp({email:p.email,password:pw,options:{data:p}}) */keep('zilax_customers',p)},
+  async merchant(p,pw,file){/* TODO: sb.auth.signUp + upload file to Storage + insert merchant_applications */keep('zilax_merchant_applications',{...p,document:file?{name:file.name,size:file.size,type:file.type}:null})},
+  async login(){/* TODO: type 'email' -> sb.auth.signInWithPassword({email,password}); type 'phone' -> look up the account email by phone (server function) or enable Supabase phone auth */throw new Error('Login will be available once authentication is connected.')},
+  google(){toast('Google sign-in will be enabled soon')},
+  otp(){toast('OTP login will be enabled soon')}};
+const toast=m=>{if(window.showToast)window.showToast(m)};
+
+/* ---------- field builder (floating labels) ---------- */
+const F=f=>{
+  const a=`id="${f.id}" name="${f.id}" data-rule="${f.rule||'required'}"`;let el;
+  if(f.type==='select')el=`<select ${a} class="zxa-i zxa-s" ${f.disabled?'disabled':''}><option value="">${f.ph||'Select'}</option>${(f.opts||[]).map(o=>`<option>${esc(o)}</option>`).join('')}</select>`;
+  else if(f.type==='textarea')el=`<textarea ${a} rows="3" placeholder=" " class="zxa-i"></textarea>`;
+  else el=`<input ${a} type="${f.type}" placeholder=" " autocomplete="${f.ac||'off'}" ${f.im?`inputmode="${f.im}"`:''} class="zxa-i">`;
+  return `<div class="zxa-f ${f.type==='select'?'zxa-up':''}" data-f="${f.id}"><div class="zxa-w">${el}<label for="${f.id}">${f.label}</label>${f.type==='password'?'<button type="button" class="zxa-eye" data-eye>Show</button>':''}</div><p class="zxa-e" role="alert"></p></div>`};
+const btn=(t,a,c)=>`<button type="${a.type||'button'}" class="zxa-btn ${c||''}" ${Object.entries(a).filter(([k])=>k!=='type').map(([k,v])=>`${k}="${v}"`).join(' ')}>${t}</button>`;
+
+/* ---------- views ---------- */
+const social=()=>`<div class="zxa-or">or continue with</div><div class="tw-grid tw-grid-cols-2 tw-gap-2">${btn('<span style="font-weight:800;color:#4285f4">G</span>&nbsp; Google',{'data-act':'google'},'ghost')}${btn('📱 OTP login',{'data-act':'otp'},'ghost')}</div>`;
+const customerView=()=>`<form id="zxaForm" class="zxa-pane" novalidate>
+  ${F({id:'name',label:'Full name',type:'text',rule:'name',ac:'name'})}${F({id:'mobile',label:'Mobile number',type:'tel',rule:'mobile',ac:'tel',im:'numeric'})}
+  ${F({id:'email',label:'Email address',type:'email',rule:'email',ac:'email'})}${F({id:'password',label:'Password (min 8 characters)',type:'password',rule:'password',ac:'new-password'})}
+  <p class="zxa-sec">Delivery area</p>
+  <div class="zxa-f zxa-up"><div class="zxa-w"><input class="zxa-i zxa-lock" value="${GEO.district}" readonly tabindex="-1" aria-label="District"><label>District</label><span class="tw-absolute tw-right-4 tw-top-4">🔒</span></div></div>
+  ${F({id:'upazila',label:'Upazila',type:'select',rule:'select',ph:'Select upazila',opts:Object.keys(GEO.upazila)})}
+  ${F({id:'union',label:'Union / Municipality',type:'select',rule:'select',ph:'Select upazila first',disabled:1})}
+  ${btn('Create account',{type:'submit',id:'zxaGo'})}${social()}
+  <p class="tw-mt-4 tw-text-center tw-text-sm">Already have an account? <button type="button" class="zxa-link" data-mode="login">Log in</button></p></form>`;
+const loginView=()=>`<form id="zxaForm" class="zxa-pane" novalidate>${F({id:'ident',label:'Email or mobile number',type:'text',rule:'ident',ac:'username'})}${F({id:'password',label:'Password',type:'password',rule:'password',ac:'current-password'})}
+  ${btn('Log in',{type:'submit',id:'zxaGo'})}${social()}<p class="tw-mt-4 tw-text-center tw-text-sm">New here? <button type="button" class="zxa-link" data-mode="customer">Create an account</button></p></form>`;
+const merchantView=()=>`<form id="zxaForm" novalidate><div class="zxa-prog" id="zxaProg">${TXT.steps.map((s,i)=>`<b>${i+1}</b>${i<2?'<span><i></i></span>':''}`).join('')}</div>
+  <div class="zxa-pane" data-step="0"><p class="zxa-sec">Step 1 · Business profile</p>
+   ${F({id:'biz',label:'Restaurant name',type:'text',rule:'required'})}${F({id:'owner',label:'Owner name',type:'text',rule:'name',ac:'name'})}${F({id:'contact',label:'Contact number',type:'tel',rule:'mobile',ac:'tel',im:'numeric'})}
+   ${F({id:'email',label:'Email address (for login)',type:'email',rule:'email',ac:'email'})}${F({id:'password',label:'Password (min 8 characters)',type:'password',rule:'password',ac:'new-password'})}${F({id:'address',label:'Full address',type:'textarea',rule:'address',ac:'street-address'})}</div>
+  <div class="zxa-pane" data-step="1" hidden><p class="zxa-sec">Step 2 · Your first menu item</p>
+   ${F({id:'item',label:'Item title',type:'text',rule:'required'})}${F({id:'price',label:'Base price (৳)',type:'number',rule:'price',im:'numeric'})}${F({id:'cat',label:'Category',type:'select',rule:'select',ph:'Select category',opts:CATS})}
+   <p class="zxa-sec">Add-ons (optional)</p><div class="zxa-chips">${ADDONS.map(a=>`<label><input type="checkbox" name="addon" value="${a}"><span>${a}</span></label>`).join('')}</div></div>
+  <div class="zxa-pane" data-step="2" hidden><p class="zxa-sec">Step 3 · Legal &amp; verification</p>
+   ${F({id:'doctype',label:'Document type',type:'select',rule:'select',ph:'Select document',opts:TXT.docs})}
+   <label class="zxa-drop" id="zxaDrop" for="zxaFile"><input id="zxaFile" type="file" accept="image/*,application/pdf" style="display:none"><div style="font-size:30px">⬆️</div><b>Drag &amp; drop your document</b><br><span class="tw-text-sm" style="color:#7a8c82">or tap to browse · JPG, PNG or PDF · max 5 MB</span></label>
+   <p class="zxa-e" id="fileErr" style="max-height:none;opacity:1;color:#d84340"></p><div id="fileInfo"></div></div>
+  <div class="tw-grid tw-grid-cols-2 tw-gap-2 tw-mt-4" id="zxaNav">${btn('Back',{'data-nav':'-1',id:'zxaBack'},'ghost')}${btn('Next',{'data-nav':'1',id:'zxaNext'})}</div></form>`;
+
+/* ---------- modal shell ---------- */
+document.body.insertAdjacentHTML('beforeend',`<div class="zxa-ov" id="zxaOv" role="dialog" aria-modal="true" aria-labelledby="zxaT"><div class="zxa tw-relative tw-w-full sm:tw-max-w-[480px] tw-max-h-[94vh] tw-overflow-y-auto tw-rounded-t-[28px] sm:tw-rounded-[28px] tw-border tw-border-white/70 tw-bg-white/[.88] tw-backdrop-blur-xl tw-shadow-2xl tw-p-5 sm:tw-p-7" id="zxaCard">
+ <div class="tw-flex tw-items-start tw-justify-between tw-mb-4"><div><h2 id="zxaT" class="tw-text-[24px]"></h2><p id="zxaS" class="tw-text-sm" style="color:#6b7c75;margin:4px 0 0"></p></div><button type="button" id="zxaX" aria-label="Close" class="tw-w-9 tw-h-9 tw-rounded-full tw-border-0 tw-bg-black/5 hover:tw-bg-black/10 tw-cursor-pointer">✕</button></div>
+ <div class="zxa-tabs" id="zxaTabs" data-i="0"><i></i><button type="button" data-tab="customer" class="on">Customer Sign-up</button><button type="button" data-tab="merchant">Partner / Merchant Sign-up</button></div>
+ <div class="tw-mt-5" id="zxaBody"></div></div></div>`);
+const ov=$('#zxaOv'),body=$('#zxaBody');let mode='customer',cur=0,file=null;
+
+function setMode(m){
+  mode=m;cur=0;file=null;
+  $('#zxaT').textContent=TXT.title[m];$('#zxaS').textContent=TXT.sub[m];
+  const t=$('#zxaTabs');t.style.display=m==='login'?'none':'';t.dataset.i=m==='merchant'?1:0;$$('[data-tab]',t).forEach(b=>b.classList.toggle('on',b.dataset.tab===m));
+  body.innerHTML=m==='merchant'?merchantView():m==='login'?loginView():customerView();
+  if(m==='merchant')go(0);
+  setTimeout(()=>{const f=$('.zxa-i:not([readonly]):not([disabled])',body);if(f&&innerWidth>640)f.focus()},60)}
+function open(m){setMode(m||'customer');ov.classList.add('open');document.body.style.overflow='hidden'}
+function close(){ov.classList.remove('open');document.body.style.overflow=''}
+
+/* ---------- validation ---------- */
+function check(el){
+  const r=RULES[el.dataset.rule],m=r?r(el.value):'',w=el.closest('.zxa-f');
+  w.classList.toggle('bad',!!m);w.classList.toggle('ok',!m&&!!el.value);el.setAttribute('aria-invalid',!!m);
+  const e=$('.zxa-e',w);if(e)e.textContent=m;return !m}
+function validate(scope){
+  let first=null;$$('[data-rule]',scope).filter(el=>!el.disabled).forEach(el=>{if(!check(el)&&!first)first=el});
+  if(first)first.focus({preventScroll:false});return !first}
+
+/* ---------- merchant steps ---------- */
+function go(n){
+  const panes=$$('.zxa-pane',body);cur=n;
+  panes.forEach(p=>{const on=+p.dataset.step===n;p.hidden=!on;if(on){p.classList.remove('zxa-pane');void p.offsetWidth;p.classList.add('zxa-pane')}});
+  $$('#zxaProg b').forEach((b,i)=>{b.className=i<n?'done':i===n?'on':'';b.textContent=i<n?'✓':i+1});
+  $$('#zxaProg span').forEach((s,i)=>s.classList.toggle('full',i<n));
+  $('#zxaBack').style.visibility=n===0?'hidden':'visible';
+  $('#zxaNext').textContent=n===2?'Submit application':'Next';$('#zxaNext').dataset.nav=n===2?'submit':'1'}
+function fileCheck(f){
+  if(!f)return 'Please upload your document';
+  if(!/^(image\/|application\/pdf)/.test(f.type))return 'Only JPG, PNG or PDF files are allowed';
+  if(f.size>5*1024*1024)return 'File is too large (max 5 MB)';return ''}
+function setFile(f){
+  const m=fileCheck(f);file=m?null:f;$('#fileErr').textContent=m;$('#zxaDrop').className='zxa-drop'+(m?' bad':file?' ok':'');
+  $('#fileInfo').innerHTML=file?`<div class="zxa-file">${file.type.startsWith('image/')?`<img alt="" src="${URL.createObjectURL(file)}">`:'<span style="font-size:30px">📄</span>'}<div class="tw-flex-1 tw-min-w-0"><b class="tw-block tw-truncate">${esc(file.name)}</b><span style="color:#7a8c82">${(file.size/1024).toFixed(0)} KB</span></div><button type="button" class="zxa-link" data-rmfile>Remove</button></div>`:''}
+
+/* ---------- submit ---------- */
+const val=id=>{const e=$('#'+id,body);return e?e.value.trim():''};
+async function submit(){
+  const b=$('#zxaGo')||$('#zxaNext');b.disabled=true;const old=b.textContent;b.textContent='Please wait…';
+  try{
+    if(mode==='customer'){const p={name:val('name'),mobile:val('mobile').replace(/[\s-]/g,''),email:val('email'),district:GEO.district,upazila:val('upazila'),union:val('union')};await hooks.customer(p,$('#password',body).value);done(`Welcome, ${esc(p.name.split(' ')[0])}!`,'Your account is ready. You can now order from restaurants in '+esc(p.upazila)+'.')}
+    else if(mode==='merchant'){const p={restaurant:val('biz'),owner:val('owner'),contact:val('contact').replace(/[\s-]/g,''),email:val('email'),address:val('address'),firstItem:{title:val('item'),price:+val('price'),category:val('cat'),addons:$$('[name=addon]:checked',body).map(x=>x.value)},documentType:val('doctype')};await hooks.merchant(p,$('#password',body).value,file);done('Application received','Our team will verify your documents and contact you within 24 hours.')}
+    else{const id=val('ident'),em=id.includes('@');await hooks.login({identifier:id,type:em?'email':'phone',value:em?id:id.replace(/[\s-]/g,'')},$('#password',body).value)}
+  }catch(e){toast(e.message||'Something went wrong');b.disabled=false;b.textContent=old}}
+function done(t,s){body.innerHTML=`<div class="zxa-ok"><div class="tick">✓</div><h2 class="tw-text-[22px]">${t}</h2><p style="color:#6b7c75;margin:8px 0 18px">${s}</p>${btn('Done',{'data-close':'1'})}</div>`;$('#zxaTabs').style.display='none'}
+
+/* ---------- events (one delegated set) ---------- */
+ov.addEventListener('click',e=>{
+  const t=e.target;
+  if(t===ov||t.closest('#zxaX')||t.closest('[data-close]'))return close();
+  const tab=t.closest('[data-tab]');if(tab&&tab.dataset.tab!==mode)return setMode(tab.dataset.tab);
+  const m=t.closest('[data-mode]');if(m)return setMode(m.dataset.mode);
+  const a=t.closest('[data-act]');if(a)return hooks[a.dataset.act]();
+  const eye=t.closest('[data-eye]');if(eye){const i=$('input',eye.parentElement);i.type=i.type==='password'?'text':'password';eye.textContent=i.type==='password'?'Show':'Hide';return}
+  if(t.closest('[data-rmfile]'))return setFile(null);
+  const nav=t.closest('[data-nav]');
+  if(nav){const d=nav.dataset.nav;
+    if(d==='-1')return go(cur-1);
+    const pane=$(`.zxa-pane[data-step="${cur}"]`,body);let ok=validate(pane);
+    if(cur===2){const m=fileCheck(file);if(m){$('#fileErr').textContent=m;$('#zxaDrop').classList.add('bad');ok=false}}
+    if(!ok)return;if(d==='submit')return submit();go(cur+1)}});
+ov.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-rule]');if(el){el.dataset.t=1;check(el)}});
+ov.addEventListener('input',e=>{const el=e.target.closest('[data-rule]');if(el&&el.dataset.t)check(el)});
+ov.addEventListener('change',e=>{
+  const el=e.target;
+  if(el.matches('select[data-rule]'))check(el);
+  if(el.id==='upazila'){const u=$('#union',body),l=GEO.upazila[el.value]||[];u.innerHTML=`<option value="">${l.length?'Select union / municipality':'Select upazila first'}</option>`+l.map(x=>`<option>${esc(x)}</option>`).join('');u.disabled=!l.length;u.closest('.zxa-f').classList.remove('ok','bad');u.dataset.t='';if(l.length){u.classList.remove('zxa-pane');void u.offsetWidth;u.focus()}}
+  if(el.id==='zxaFile')setFile(el.files[0])});
+ov.addEventListener('submit',e=>{e.preventDefault();if(mode==='merchant')$('#zxaNext').click();else if(validate(body))submit()});
+['dragenter','dragover'].forEach(n=>ov.addEventListener(n,e=>{if(e.target.closest('#zxaDrop')){e.preventDefault();$('#zxaDrop').classList.add('drag')}}));
+['dragleave','drop'].forEach(n=>ov.addEventListener(n,e=>{if(e.target.closest('#zxaDrop')){e.preventDefault();$('#zxaDrop').classList.remove('drag');if(n==='drop'&&e.dataTransfer.files[0])setFile(e.dataTransfer.files[0])}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ov.classList.contains('open'))close()});
+
+/* ---------- open from "Account" and "Partner Portal" links ---------- */
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#/partner"]');if(!a)return;
+  e.preventDefault();e.stopPropagation();open(a.closest('.mobile-nav')?'customer':'merchant')},true);
+window.ZXAuth={open,close,hooks};
 })();
 </script>
 </body>
